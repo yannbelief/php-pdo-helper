@@ -38,6 +38,7 @@ class DB
 
 	}
 	
+	/* Fetch records which contains only the value of first column and return them as an array */
 	function fetchColOneArr($sql,$params=array()) {
 		$rows = $this->fetch($sql,$params,PDO::FETCH_NUM);
 		$result = array();
@@ -47,6 +48,7 @@ class DB
 		return $result;
 	}
 	
+	/* Fetch only the first record as object. A default object can be passed in as a argument to replace the return value NULL when it fetchs no record. */
 	function fetchOneObj($sql,$params=array(),$defaultObj=NULL) {
 		$rows = $this->fetch($sql,$params);
 		if(count($rows) > 0)
@@ -56,6 +58,7 @@ class DB
 		return $result;
 	}
 	
+	/* Fetch the value of the first column from 1st record. A default object can be passed in as a argument to replace the return value NULL when it fetchs no record. */
 	function fetchOneVal($sql,$params=array(),$defaultProp=NULL) {
 		$rows = $this->fetch($sql,$params,PDO::FETCH_NUM);
 		if(count($rows) > 0)
@@ -65,6 +68,7 @@ class DB
 		return $result;
 	}
 	
+	/* Use this method when your SQL starts with "INSERT...", it will return the id of inserted record. */
 	function insert($sql,$params=array()) {
 		try {
 		   $sth = $this->pdo->prepare($sql);
@@ -75,19 +79,21 @@ class DB
 		}   
 	}
 
-	
+	/* Use this method when you are using SQL command like "UPDATE", "ALTER TABLE", ...etc. */
 	function execute($sql,$params=array()) {
 		   $sth = $this->pdo->prepare($sql);
  		   return $sth->execute($params);
 	}
 	
-	 function fetch($sql,$params=array(),$method=PDO::FETCH_OBJ) {
+	/* Fecth records according your SQL command and return records as objects. */
+	function fetch($sql,$params=array(),$method=PDO::FETCH_OBJ) {
 		   $sth = $this->pdo->prepare($sql);
  		   $sth->execute($params);
  		   $result = $sth->fetchAll($method);
  		   return $result;
 	}
-
+	
+	/* Fecth records according your SQL command and return records as associated arrays. */
 	function fetchArr($sql,$params=array()) {
 		return $this->fetch($sql,$params=array(),PDO::FETCH_BOTH);
 
