@@ -32,6 +32,14 @@ Then you can start to use some db operations like fetch, insert, update as follo
 	$result = $db->execute("UPDATE my_table SET col1 = ?, col2 = ? WHERE id = ?",["val1","val2",3]);
 ```
 
+PDO Value Binding
+---
+
+you may notice that the example above uses question mark(?) for which real values will be substituted when the SQL statement is executed. I simplify the usage of built-in Statement provided by PDO.
+When you work with value binding, you can pass your value array as the 2nd argument to the method which you are going call.
+The optional 2nd argument is supported by all methods in this helper class.
+
+
 Fetch (select)
 ---
 
@@ -83,12 +91,12 @@ Hence, there comes the `fetchColOneArr` method.
 See. Isn't it simpler to use?
 
 
-Fetch First Record As a single object or single value
+Fetch First Record As a Single Object or Single Value
 ---
 
 Sometimes all we need to fetch is a single object or value.
-In terms of rational database, it's the first record.
-Then the method `fetchOneObj` or `fetchOneVal` is a good choice to handle such conditions.
+And it's the first record in terms of rational database.
+To handle such conditions, the method `fetchOneObj` or `fetchOneVal` is a good choice.
 
 ```php
 	$taiwanese = $db->fetchOneObj("SELECT * FROM my_table WHERE country = 'Taiwan'");
@@ -101,3 +109,25 @@ Then the method `fetchOneObj` or `fetchOneVal` is a good choice to handle such c
 	$name = $db->fetchOneVal("SELECT name FROM my_table WHERE country = 'Japan'");
 	echo $name; // MATSUSHITA Daiki
 ```
+
+**Change the Default Object or Default Value Returned**
+
+When the SQL selects no record by `fetchOneObj` or `fetchOneVal`, it returns a NULL value.
+If you want to replace the NULL with your default object or value, you just pass it into the method through the 3rd argument.
+
+```php
+	$defaulObj->name = "NOT FOUND";
+	$defaulObj->country "N/A";
+
+	$nullCase = $db->fetchOneObj("SELECT * FROM my_table WHERE country = 'UK'",[],$deafultObj);
+	echo $nullCase->name; // NOT FOUND
+	echo $nullCase->country; // N/A
+```
+
+```php
+	$defaultName = "NOT FOUND";
+	$nullName = $db->fetchOneObj("SELECT name FROM my_table WHERE country = 'UK'",[],$defaultName);
+	echo $nullName; // NOT FOUND
+```
+
+Therefore, you don't have to manually handle the NULL condition and assign the default value to it afterward.
