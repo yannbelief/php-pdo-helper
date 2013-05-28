@@ -12,7 +12,7 @@ class DB
 {
 	public static $dsn = "";
 	public static $account = "";
-	public static $passowrd = "";
+	public static $password = "";
 
 	private static $db;
 	
@@ -39,7 +39,7 @@ class DB
 
     	$dsn = DB::$dsn;
 		$user = DB::$account;
-		$pwd = DB::$passowrd;
+		$pwd = DB::$password;
     	$dbh = new PDO($dsn, $user, $pwd,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 		$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 		
