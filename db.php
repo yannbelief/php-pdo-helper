@@ -1,3 +1,4 @@
+<?php
 /** php-pdo-helper provides a convenient way to handle the rows returned by SQL SELECT command in PDO.
 * @link https://github.com/yannbelief/php-pdo-helper
 * @author CHEN Yen Ming https://github.com/yannbelief/
@@ -5,9 +6,7 @@
 * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
 * @license http://www.gnu.org/licenses/gpl-2.0.html GNU General Public License, version 2 (one or other)
 */
-
-
-<?php
+  
 class DB
 {
 	public static $dsn = "";
