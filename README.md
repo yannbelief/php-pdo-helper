@@ -140,7 +140,10 @@ NotORM plug-in
 It's easy to go wrong with value binding when you accedentially fill the value-n into the position of column-(n-1) or column-(n+1).
 
 ```php
-	$db->execute("UPDATE my_table SET col1 = ?, col2 = ?, ..., coln=? WHERE id = ?",["val1","val2",...,"valn",3]);
+	$db->execute(
+    	"UPDATE my_table SET col1 = ?, col2 = ?, ..., coln=? WHERE id = ?",
+    	["val1","val2",...,"valn",3]
+    );
 
 ```
 
@@ -149,7 +152,7 @@ NotORM alleviates (or solves) this problem by using a key-value array. There is 
 ```php
 	$tables->my_table()
 	->where("id", 3)
-	->update(["col1"=>"val1","col1"=>"val1",...,"coln"=>"valn"]);
+	->update(["col1"=>"val1","col2"=>"val2",...,"coln"=>"valn"]);
 ```
 
 So I include NotORM under GPL 2.0. You can use notORM's functionalities by:
