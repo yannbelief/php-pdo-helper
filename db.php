@@ -20,8 +20,8 @@ class DB
 	
 	public function notORM(){
 		include "notORM/NotORM.php";
-		$table = new NotORM($this->pdo());
-		return $table;
+		$tables = new NotORM($this->pdo());
+		return $tables;
 	}
 	
 
