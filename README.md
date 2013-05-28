@@ -113,7 +113,7 @@ To handle such conditions, the method `fetchOneObj` or `fetchOneVal` is a good c
 **Change the Default Object or Default Value Returned**
 
 When the SQL selects no record by `fetchOneObj` or `fetchOneVal`, it returns a NULL value.
-If you want to replace the NULL with your default object or value, you just pass it into the method through the 3rd argument.
+If you want to replace the NULL with your default object or value, you just pass it into the method through the 3rd argument. Both of the two methods will automatically replace the return value in NULL case for you.
 
 ```php
 	$defaulObj->name = "NOT FOUND";
