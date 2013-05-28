@@ -124,6 +124,8 @@ If you want to replace the NULL with your default object or value, you just pass
     $defaultObj->name = "NOT FOUND";
     $defaultObj->country = "N/A";
     $nullCase = $db->fetchOneObj("SELECT * FROM my_table WHERE country = 'UK'",[],$defaultObj);
+    echo $nullCase->name; // NOT FOUND
+    echo $nullCase->country; // N/A
 ```
 
 ```php
