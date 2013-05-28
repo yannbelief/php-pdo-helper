@@ -131,3 +131,31 @@ If you want to replace the NULL with your default object or value, you just pass
 ```
 
 Therefore, you don't have to manually handle the NULL condition and assign the default value to it afterward.
+
+NotORM plug-in
+---
+
+[NotORM](https://github.com/vrana/notorm) is a PHP library made by [Jakub Vrána](https://github.com/vrana) to model SQL command in more object-oriented way. Personally I like its design, and I use it to alleviate annoying positional correctness issue in value binding.
+
+It's easy to go wrong with value binding when you accedentially fill the value-n into the position of column-(n-1) or column-(n+1).
+
+```php
+	$db->execute("UPDATE my_table SET col1 = ?, col2 = ?, ..., coln=? WHERE id = ?",["val1","val2",...,"valn",3]);
+
+```
+
+NotORM alleviates (or solves) this problem by using a key-value array. There is no way to get wrong.
+
+```php
+	$tables->my_table()
+	->where("id", 3)
+	->update(["col1"=>"val1","col1"=>"val1",...,"coln"=>"valn"]);
+```
+
+So I include NotORM under GPL 2.0. You can use notORM's functionalities by:
+
+```php
+	$tables = $db->notORM();
+```
+
+The `$tables` object is equal to NotORM's `$db` object. For more details about NotORM, you can visit its [official web site](http://www.notorm.com/).
