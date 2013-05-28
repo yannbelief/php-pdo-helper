@@ -85,7 +85,7 @@ In some occasions, we fetch the values only in one column, like:
 	SELECT name FROM my_table
 
 And we would like the return value of this kind of SQL to be a simple array.
-Hence, there comes the `fetchColOneArr` method.
+Hence, here comes the `fetchColOneArr` method.
 
 ```php
 	$names = $db->fetchColOneArr("SELECT name FROM my_table");
