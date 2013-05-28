@@ -150,9 +150,10 @@ It's easy to go wrong with value binding when you accedentially fill the value-n
 NotORM alleviates (or solves) this problem by using a key-value array. There is no way to get wrong.
 
 ```php
-	$tables->my_table()
-	->where("id", 3)
-	->update(["col1"=>"val1","col2"=>"val2",...,"coln"=>"valn"]);
+	$tables
+    	->my_table()
+		->where("id", 3)
+		->update(["col1"=>"val1","col2"=>"val2",...,"coln"=>"valn"]);
 ```
 
 So I include NotORM under GPL 2.0. You can use notORM's functionalities by:
