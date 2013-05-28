@@ -62,9 +62,42 @@ If you like the associative array style, you can use `fetchArr` instead:
 ```php
 	$rows = $db->fetchArr("SELECT * FROM my_table");	
 	echo $rows[0]["name"]; // CHEN Yen Ting
+	echo $rows[0][1]; // CHEN Yen Ting
 ```
 
-Fetch One Column
+Fetch Values in One Column As an Array
 ---
 
-In some occasions, 
+In some occasions, we fetch the values only in one column, like:
+
+	SELECT name FROM my_table
+
+And we would like the return value of this kind of SQL to be a simple array.
+Hence, there comes the `fetchColOneArr` method.
+
+```php
+	$names = $db->fetchColOneArr("SELECT name FROM my_table");
+	echo $names[2]; // Bob DAVIES
+```
+
+See. Isn't it simpler to use?
+
+
+Fetch First Record As a single object or single value
+---
+
+Sometimes all we need to fetch is a single object or value.
+In terms of rational database, it's the first record.
+Then the method `fetchOneObj` or `fetchOneVal` is a good choice to handle such conditions.
+
+```php
+	$taiwanese = $db->fetchOneObj("SELECT * FROM my_table WHERE country = 'Taiwan'");
+	echo $taiwanese->name; // CHEN Yen Ting
+	echo $taiwanese->country; // Taiwan
+	echo $taiwanese->id; // 1
+```
+
+```php
+	$name = $db->fetchOneVal("SELECT name FROM my_table WHERE country = 'Japan'");
+	echo $name; // MATSUSHITA Daiki
+```
