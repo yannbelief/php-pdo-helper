@@ -12,7 +12,7 @@ Put the following lines in your config or setting file, e.g. mydbXXX.php
 	require("php-pdo-helper/db.php");
 	DB::$dsn = "mysql:host=[your host address];dbname=[your db]";
 	DB::$account = "[user name]";
-	DB::$passowrd = "[password]";
+	DB::$password = "[password]";
 	$db = DB::instance();
 ```
 And include it whatever pages needed.
@@ -36,7 +36,7 @@ PDO Value Binding
 ---
 
 you may notice that the example above uses question mark(?) for which real values will be substituted when the SQL statement is executed. I simplify the usage of built-in Statement provided by PDO.
-When you work with value binding, you can pass your value array as the 2nd argument to the method which you are going call.
+When you work with value binding, you can pass your value array as the 2nd argument to the method which you are going to call.
 The optional 2nd argument is supported by all methods in this helper class.
 
 
@@ -91,7 +91,7 @@ Hence, there comes the `fetchColOneArr` method.
 See. Isn't it simpler to use?
 
 
-Fetch First Record As a Single Object or Single Value
+Fetch the First Record As a Single Object or Single Value
 ---
 
 Sometimes all we need to fetch is a single object or value.
