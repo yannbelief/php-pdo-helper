@@ -1,7 +1,7 @@
 PDO Helper
 ==========================================
 
-This is a wrapper class of built-in PDO. It aims to provide comman methods which are convenient and friendly to programmers while they are working with database through PDO.
+This is a wrapper class of built-in PDO. It aims to provide common methods which are convenient and friendly to programmers while they are working with database through PDO.
 
 **Requirement:** PHP 5.1+
 
