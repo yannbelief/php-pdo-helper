@@ -120,17 +120,15 @@ When the SQL selects no record by `fetchOneObj` or `fetchOneVal`, it returns a N
 If you want to replace the NULL with your default object or value, you just pass it into the method through the 3rd argument. Both of the two methods will automatically replace the return value in NULL case for you.
 
 ```php
-	$defaulObj->name = "NOT FOUND";
-	$defaulObj->country "N/A";
-
-	$nullCase = $db->fetchOneObj("SELECT * FROM my_table WHERE country = 'UK'",[],$deafultObj);
-	echo $nullCase->name; // NOT FOUND
-	echo $nullCase->country; // N/A
+	$defaultObj = new stdClass;
+    $defaultObj->name = "NOT FOUND";
+    $defaultObj->country = "N/A";
+    $nullCase = $db->fetchOneObj("SELECT * FROM my_table WHERE country = 'UK'",[],$defaultObj);
 ```
 
 ```php
 	$defaultName = "NOT FOUND";
-	$nullName = $db->fetchOneObj("SELECT name FROM my_table WHERE country = 'UK'",[],$defaultName);
+	$nullName = $db->fetchOneVal("SELECT name FROM my_table WHERE country = 'UK'",[],$defaultName);
 	echo $nullName; // NOT FOUND
 ```
 
