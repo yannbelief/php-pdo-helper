@@ -100,7 +100,7 @@ See. Isn't it simpler to use?
 Fetch the First Record As a Single Object or Single Value
 ---
 
-Sometimes all we need to fetch is a single object or value.
+Sometimes what all we need to fetch is a single object or value.
 And it's the first record in terms of rational database.
 To handle such conditions, the method `fetchOneObj` or `fetchOneVal` is a good choice.
 
