@@ -41,7 +41,7 @@ Then you can start to use some db operations like fetch, insert, update as follo
 PDO Value Binding
 ---
 
-you may notice that the example above uses question mark(?) for which real values will be substituted when the SQL statement is executed. I simplify the usage of built-in Statement provided by PDO.
+You may notice that the example above uses question mark(?) for which real values will be substituted when the SQL statement is executed. I simplify the usage of built-in Statement provided by PDO.
 When you work with value binding, you can pass your value array as the 2nd argument to the method which you are going to call.
 The optional 2nd argument is supported by all methods in this helper class.
 
@@ -82,7 +82,7 @@ If you like the associative array style, you can use `fetchArr` instead:
 Fetch Values in One Column As an Array
 ---
 
-In some occasions, we fetch the values only in one column, like:
+In some occasions, we fetch the values in one column only, like:
 
 	SELECT name FROM my_table
 
