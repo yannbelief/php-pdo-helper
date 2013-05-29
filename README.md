@@ -66,7 +66,7 @@ And we want to select all records, just use the `fetch` method like this:
 	$rows = $db->fetch("SELECT * FROM my_table");
 ```
 
-The default way to access an attribute (a column) follows object style:
+The default way to access the value of an attribute (a column) follows object style:
 
 ```php
 	echo $rows[0]->name; // CHEN Yen Ting
