@@ -160,7 +160,7 @@ NotORM alleviates (or solves) this problem by using a key-value array. There is 
 		->update(["col1"=>"val1","col2"=>"val2",...,"coln"=>"valn"]);
 ```
 
-So I include NotORM under GPL 2.0. You can use notORM's functionalities by:
+So I include NotORM under GPL 2.0. You can use NotORM's functionalities by:
 
 ```php
 	$tables = $db->notORM();
