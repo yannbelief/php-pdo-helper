@@ -83,9 +83,9 @@ Fetch Values in One Column As an Array
 ---
 
 In some occasions, we fetch the values in one column only, like:
-
+```SQL
 	SELECT name FROM my_table
-
+```
 And we would like the return value of this kind of SQL to be a simple array.
 Hence, here comes the `fetchColOneArr` method.
 
