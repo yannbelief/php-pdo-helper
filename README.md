@@ -12,7 +12,7 @@ This is a wrapper class of built-in PDO. It aims to provide common methods which
 Usage
 ---
 
-Put the following lines in your config or setting file, e.g. mydbXXX.php
+Put the following lines in your config or setting file, e.g. my_db_name.php
 
 ```php
 	require("php-pdo-helper/db.php");
@@ -21,10 +21,10 @@ Put the following lines in your config or setting file, e.g. mydbXXX.php
 	DB::$password = "[password]";
 	$db = DB::instance();
 ```
-And include it in whatever pages needed.
+And include it in the page needed.
 
 ```php
-	require("mydbXXX.php");
+	require("my_db_name.php");
 ```
 
 Then you can start to use some db operations like fetch, insert, update as following:
