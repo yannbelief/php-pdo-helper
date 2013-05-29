@@ -21,7 +21,7 @@ Put the following lines in your config or setting file, e.g. mydbXXX.php
 	DB::$password = "[password]";
 	$db = DB::instance();
 ```
-And include it whatever pages needed.
+And include it in whatever pages needed.
 
 ```php
 	require("mydbXXX.php");
